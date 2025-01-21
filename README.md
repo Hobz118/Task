@@ -80,3 +80,22 @@ The **Mood Logging API** allows users to:
      - Provides clear feedback to users about issues with their requests.  
      - Aligns with RESTful API standards.  
    - **Trade-offs**: Does not include advanced error logging or monitoring, which would be necessary for a production system.
+  
+## Getting Started  
+
+### Prerequisites  
+Ensure you have the following installed:  
+- **Node.js**  
+
+### Installation  
+
+1. **Clone the Repository:**  
+   -bash  
+   -git clone https://github.com/Hobz118/Task.git  
+   -cd Task  
+2.	**Install Dependencies**:
+   -npm install  
+3.	**Start the Application:**
+   -nodemon index.js  
+
+The application will be accessible at http://localhost:3000.
