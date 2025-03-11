@@ -20,6 +20,10 @@ export const AddMood=asyncHandler(async(req,res,next)=>{
 })
 
 export const GetMyHistory=asyncHandler(async(req,res,next)=>{
+  console.log("a7a");
+  
+  console.log(req.user);
+  
     const check=await userModel.findById(req.user._id)
     if(!check){
         return next(new Error(`User not found`,{cause:404}))
@@ -30,6 +34,8 @@ export const GetMyHistory=asyncHandler(async(req,res,next)=>{
     }
     return res.status(200).json({mesage:"Mood History",score})
 })
+
+
 
 export const getLast7Moods = asyncHandler(async (req, res, next) => {
     const userId = req.user._id;

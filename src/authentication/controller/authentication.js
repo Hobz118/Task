@@ -27,16 +27,17 @@ export const SignUp=asyncHandler(async(req,res,next)=>{
 })
 
 export const SignIn=asyncHandler(async(req,res,next)=>{
+    
     const {email,password}=req.body
     const user=await userModel.findOne({email})
     if(!user){
         return next(new Error(`Email is not exist`,{cause:400}))
     }
-    const token=await jwt.sign({id:user._id,role:user.role},process.env.TOKEN_SIGNATURE,{expiresIn:"1d"})
     const checkpass=await bcrypt.compare(password,user.password)
     if(!checkpass){
         return next(new Error(`Password is not correct`,{cause:400}))
     }
+    const token=await jwt.sign({id:user._id,role:user.role},process.env.TOKEN_SIGNATURE,{expiresIn:"1d"})
     return res.status(200).json({mesage:"user login succesfully",user,"token":token})
 })
 
